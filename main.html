@@ -122,3 +122,65 @@
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: var(--radius-sm);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+    }
+    .rotate-wrap { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .message { padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; margin-bottom: 1rem; }
+    .message.info { background: rgba(6, 182, 212, 0.1); border: 1px solid var(--surf); color: var(--wave); }
+    .message.success { background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; color: #4ade80; }
+    .message.error { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #f87171; }
+
+    .list-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .list-card h2 { font-size: 0.85rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.88rem;
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item .val { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
+    .list-item .region { color: var(--surf); }
+    .empty-state { padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+
+    .tabs { display: flex; gap: 0.25rem; margin-bottom: 1rem; }
+    .tab {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      color: var(--text-dim);
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+    .tab.active { border-color: var(--surf); color: var(--surf); background: var(--glow-surf); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .event-log {
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 0.5rem;
+      background: var(--bg-panel);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft);
+    }
+    .event-log line { display: block; margin-bottom: 0.2rem; }
+    .faq-item { padding: 0.75rem 0; border-bottom: 1px solid var(--border-soft); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 600; color: var(--text); margin-bottom: 0.25rem; font-size: 0.9rem; }
+    .faq-a { font-size: 0.88rem; color: var(--text-dim); }
+    footer { text-align: center; padding: 1.5rem 0; font-size: 0.78rem; color: var(--text-dim); }
