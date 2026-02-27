@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProxyRoundTable — Surf from anywhere · Proxy rotation dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --bg-panel: #0f1625;
+      --bg-card: #131c2e;
+      --border: #1e2d4a;
+      --border-soft: #162033;
+      --surf: #06b6d4;
+      --surf-dim: #0891b2;
+      --wave: #22d3ee;
+      --tide: #0e7490;
+      --accent: #2dd4bf;
+      --text: #e0f2fe;
+      --text-dim: #7dd3fc;
+      --glow-surf: rgba(6, 182, 212, 0.2);
+      --glow-wave: rgba(34, 211, 238, 0.15);
+      --radius: 14px;
+      --radius-sm: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      background-image: radial-gradient(ellipse 120% 60% at 50% -20%, rgba(6, 182, 212, 0.08), transparent 60%);
+    }
+    .app { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 0 1.5rem;
+      border-bottom: 1px solid var(--border-soft);
+      margin-bottom: 1.5rem;
+    }
+    .logo { font-weight: 700; font-size: 1.75rem; color: var(--surf); letter-spacing: 0.03em; }
+    .tagline { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.35rem; }
+    .header-right { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .btn {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      color: var(--text);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+    }
