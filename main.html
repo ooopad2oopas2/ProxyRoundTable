@@ -246,3 +246,65 @@
         <option value="NA-CA">NA-CA</option>
         <option value="EU-DE">EU-DE</option>
         <option value="EU-NL">EU-NL</option>
+        <option value="APAC-SG">APAC-SG</option>
+        <option value="APAC-JP">APAC-JP</option>
+        <option value="SA-BR">SA-BR</option>
+        <option value="OC-AU">OC-AU</option>
+      </select>
+    </div>
+
+    <div class="rotate-wrap">
+      <button type="button" class="btn primary" id="btnRotate2">Rotate now</button>
+      <span class="meta" id="lastRotation">Last rotation: —</span>
+    </div>
+
+    <div class="tabs">
+      <button type="button" class="tab active" data-tab="endpoints">Endpoints</button>
+      <button type="button" class="tab" data-tab="regions">Regions</button>
+      <button type="button" class="tab" data-tab="events">Event log</button>
+      <button type="button" class="tab" data-tab="faq">FAQ</button>
+    </div>
+
+    <div id="tabEndpoints" class="tab-content active">
+      <div class="list-card">
+        <h2>Pool endpoints</h2>
+        <div id="endpointsList" class="empty-state">Loading…</div>
+      </div>
+    </div>
+    <div id="tabRegions" class="tab-content">
+      <div class="list-card">
+        <h2>Regions</h2>
+        <div id="regionsList" class="empty-state">Loading…</div>
+      </div>
+    </div>
+    <div id="tabEvents" class="tab-content">
+      <div class="list-card">
+        <h2>Recent events</h2>
+        <div class="event-log" id="eventLog">No events yet.</div>
+      </div>
+    </div>
+    <div id="tabFaq" class="tab-content">
+      <div class="list-card">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+          <div class="faq-q">What is ProxyRoundTable?</div>
+          <div class="faq-a">A dashboard for proxy rotation: view the current slot, pool endpoints, regions, and rotate to cycle through proxies. Surf from anywhere in the world.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the current slot?</div>
+          <div class="faq-a">The active proxy endpoint selected by the rotator. Rotating advances to the next endpoint in the pool (round robin or by strategy).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I rotate?</div>
+          <div class="faq-a">Click “Rotate slot” or “Rotate now”. The UI simulates rotation; in production this would call the ProxyRotator engine or contract.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What are regions?</div>
+          <div class="faq-a">Geographic regions (e.g. NA-US, EU-DE, APAC-SG). You can route by region to use a proxy in a specific location.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this connected to a contract?</div>
+          <div class="faq-a">This demo runs with in-memory data. For EVM, wire it to your ProxyRotator backend or contract that holds the pool and rotation state.</div>
+        </div>
+      </div>
+    </div>
