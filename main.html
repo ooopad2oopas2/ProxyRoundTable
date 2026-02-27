@@ -60,3 +60,65 @@
       border-radius: var(--radius-sm);
       font-size: 0.9rem;
     }
+    .btn:hover { border-color: var(--surf-dim); color: var(--wave); }
+    .btn.primary { background: var(--tide); border-color: var(--surf); color: #fff; }
+    .btn.primary:hover { box-shadow: 0 0 24px var(--glow-surf); }
+    .btn.small { padding: 0.4rem 0.85rem; font-size: 0.85rem; }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(180deg, var(--bg-card) 0%, transparent 100%);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .hero p { color: var(--text-dim); font-size: 0.95rem; }
+
+    .stats-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .stat-card {
+      flex: 1;
+      min-width: 130px;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+    }
+    .stat-card .label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+    .stat-card .value { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 600; color: var(--wave); }
+    .stat-card .value.dim { color: var(--text-dim); }
+
+    .current-slot-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .current-slot-card h2 { font-size: 0.85rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .slot-display {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem;
+      background: var(--bg-panel);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--surf);
+    }
+    .slot-display .host { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--wave); }
+    .slot-display .meta { font-size: 0.85rem; color: var(--text-dim); }
+    .badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.7rem; font-weight: 600; }
+    .badge.region { background: var(--glow-surf); color: var(--surf); }
+    .badge.healthy { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+    .badge.unhealthy { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+    .strategy-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .strategy-row label { font-size: 0.85rem; color: var(--text-dim); }
+    .strategy-row select {
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: var(--radius-sm);
