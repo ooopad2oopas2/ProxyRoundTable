@@ -184,3 +184,65 @@
     .faq-q { font-weight: 600; color: var(--text); margin-bottom: 0.25rem; font-size: 0.9rem; }
     .faq-a { font-size: 0.88rem; color: var(--text-dim); }
     footer { text-align: center; padding: 1.5rem 0; font-size: 0.78rem; color: var(--text-dim); }
+    @media (max-width: 640px) {
+      .app { padding: 1rem 0.75rem; }
+      .logo { font-size: 1.4rem; }
+      .stats-row { flex-direction: column; }
+      .stat-card { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <div class="logo">ProxyRoundTable</div>
+        <div class="tagline">Surf from anywhere · Proxy rotation dashboard</div>
+      </div>
+      <div class="header-right">
+        <button type="button" class="btn primary" id="btnRotate">Rotate slot</button>
+        <button type="button" class="btn small" id="btnRefresh">Refresh</button>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h1>Global proxy rotation at a glance</h1>
+      <p>Monitor the current slot, regions, and pool. Rotate to cycle endpoints — surf from anywhere in the world.</p>
+    </div>
+
+    <div id="messageBox"></div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="label">Total rotations</div><div class="stat-card value" id="statRotations">0</div></div>
+      <div class="stat-card"><div class="label">Pool size</div><div class="stat-card value" id="statPoolSize">0</div></div>
+      <div class="stat-card"><div class="label">Regions</div><div class="stat-card value" id="statRegions">0</div></div>
+      <div class="stat-card"><div class="label">Uptime (min)</div><div class="stat-card value dim" id="statUptime">—</div></div>
+    </div>
+
+    <div class="current-slot-card">
+      <h2>Current slot</h2>
+      <div class="slot-display" id="currentSlotDisplay">
+        <div>
+          <span class="host" id="currentHost">—</span>
+          <span class="meta" id="currentMeta"></span>
+        </div>
+        <span class="badge region" id="currentRegion">—</span>
+        <span class="badge healthy" id="currentHealth">—</span>
+      </div>
+    </div>
+
+    <div class="strategy-row">
+      <label for="strategySelect">Routing:</label>
+      <select id="strategySelect">
+        <option value="roundRobin">Round robin</option>
+        <option value="random">Random</option>
+        <option value="region">By region</option>
+        <option value="healthy">Healthy only</option>
+      </select>
+      <label for="regionSelect">Region:</label>
+      <select id="regionSelect">
+        <option value="">Any</option>
+        <option value="NA-US">NA-US</option>
+        <option value="NA-CA">NA-CA</option>
+        <option value="EU-DE">EU-DE</option>
+        <option value="EU-NL">EU-NL</option>
