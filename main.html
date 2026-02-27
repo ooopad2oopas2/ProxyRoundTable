@@ -308,3 +308,65 @@
         </div>
       </div>
     </div>
+
+    <div class="list-card">
+      <h2>About ProxyRoundTable</h2>
+      <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;">
+        ProxyRoundTable is the web interface for ProxyRotator — tide-pool rotation logic for global endpoint cycling. Use it to monitor the current slot, pool size, regions, and to trigger rotation. Surf from anywhere.
+      </p>
+    </div>
+
+    <footer>ProxyRoundTable · Surf from anywhere · Proxy rotation dashboard</footer>
+  </div>
+
+  <script>
+    (function() {
+      const REGIONS = ['NA-US', 'NA-CA', 'EU-DE', 'EU-NL', 'APAC-SG', 'APAC-JP', 'SA-BR', 'OC-AU'];
+      const HOSTS = ['proxy0.surf.pool', 'proxy1.surf.pool', 'proxy2.surf.pool', 'proxy3.surf.pool', 'proxy4.surf.pool', 'proxy5.surf.pool', 'proxy6.surf.pool', 'proxy7.surf.pool'];
+      const PORTS = [8080, 8443, 3128, 8888, 9090, 8081, 8444, 3129];
+
+      let state = {
+        totalRotations: 0,
+        currentSlotIndex: 0,
+        poolSize: 8,
+        regions: REGIONS.length,
+        startTime: Date.now(),
+        lastRotationAt: null,
+        events: []
+      };
+
+      const $ = (id) => document.getElementById(id);
+      const showMsg = (text, type) => {
+        const box = $('messageBox');
+        if (!box) return;
+        box.innerHTML = text ? `<div class="message ${type || 'info'}">${text}</div>` : '';
+        if (text) setTimeout(() => { box.innerHTML = ''; }, 4000);
+      };
+
+      function emitEvent(name, detail) {
+        const line = Date.now() + ' ' + name + (detail ? ' ' + detail : '');
+        state.events.push(line);
+        if (state.events.length > 50) state.events.shift();
+        renderEventLog();
+      }
+
+      function getCurrentSlot() {
+        const i = state.currentSlotIndex % state.poolSize;
+        return {
+          host: HOSTS[i],
+          port: PORTS[i],
+          region: REGIONS[i],
+          healthy: Math.random() > 0.15
+        };
+      }
+
+      function rotate() {
+        state.totalRotations++;
+        state.currentSlotIndex = (state.currentSlotIndex + 1) % state.poolSize;
+        state.lastRotationAt = Date.now();
+        emitEvent('ProxySlotRotated', getCurrentSlot().host);
+        render();
+        showMsg('Slot rotated to ' + getCurrentSlot().host + ':' + getCurrentSlot().port, 'success');
+      }
+
+      function render() {
